@@ -2,6 +2,7 @@
   "name": "vscosc",
   "displayName": "vscosc",
   "description": "Control vscode with OSC",
+  "publisher": "gareth-loot",
   "repository": {
     "type": "git",
     "url": "https://github.com/garethloot/vscosc"
