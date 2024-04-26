@@ -1,0 +1,66 @@
+{
+  "name": "vscosc",
+  "displayName": "vscosc",
+  "description": "Control vscode with OSC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garethloot/vscosc"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "VSCOSC",
+      "properties": {
+        "vscosc.clientPort": {
+          "type": "number",
+          "default": 5555,
+          "description": "Send OSC messages to this port"
+        },
+        "vscosc.clientHost": {
+          "type": "string",
+          "default": "localhost",
+          "description": "Send OSC messages to this host"
+        },
+        "vscosc.serverPort": {
+          "type": "number",
+          "default": 1001,
+          "description": "The port to listen for OSC messages"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/node-osc": "^6.0.3",
+    "node-osc": "^9.1.1"
+  }
+}
